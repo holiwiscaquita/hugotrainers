@@ -1,0 +1,90 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="sobremi">
+    <body>
+        <main>
+            <section id="sobre">
+                <h1>Sobre mi:</h1>
+                <div id="quien">
+                    <img
+                        src="/argensimia.png"
+                        alt="no carga"
+                        class="cuadrada"
+                    />
+                    <p>
+                        Quien soy: Hola, mi nombre es Alvaro Monsalves, tengo 17
+                        años y vivo en General Roca, Rio Negro, aunque naci en
+                        bahia blanca, donde solo vivi unos meses.
+                    </p> <!--El elemento p (párrafo) es el apropiado para distribuir el texto en párrafos-->
+                </div>
+                <div id="quehago"> <!--el id le otorga un nombre al contenedor, para luego identificarlo y diferenciarlo-->
+                    <img src="/cetnmro1.png" alt="no carga" width="100px" />
+                    Que hago actualmente: Hoy estoy haciendo esta pagina como parte
+                    del taller de Redes, en el CET N°1, escuela en la que voy a 5to
+                    año, quedandome solo uno. A parte de estudiar, tambien voy al
+                    gimnasio y hacia Handball, deporte el cual tuve que dejar por
+                    problemas en mi rodilla, por lo que actualmente estoy en recuperacion.
+                </div>
+                <div id="gustos">
+                    <p>
+                        Mis gustos: lo que mas me gusta es salir con mis amigos
+                        a hacer lo que sea, tanto jugar al futbol como estar en
+                        una casa jugando, tambien soy de jugar videojuegos, pero
+                        por la escuela lo deje un poco de lado, juego bastantes
+                        juegos, pero los principales pueden ser Age of Empires
+                        2: Definitive Edition, Project Zomboid o Minecraft,
+                        entre muchos.
+                    </p>
+                    <div> <!-- class da clases para determinar el style de los contenedores, en los cuales, si el class esta en el elemento, tomara sus propiedades
+                    alt= es un texto alternativo en caso de que la imagen principal no cargue -->
+                        <img
+                            class="cuadrada" 
+                            src="/ageofempireslogo.png"
+                            alt="no carga"
+                        />
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</Layout>
+
+<style>
+    .cuadrada {
+        width: 100px;
+        aspect-ratio: 1 / 1;
+    }
+    body {
+        background-color: gray;
+    }
+    h1 {
+        text-align: center;
+    }
+    #sobre {
+        justify-content: start;
+        display: flex;
+        font-size: large;
+        text-align: left;
+        font-style: normal;
+        margin-bottom: 30px;
+        flex-direction: column; /*determina la forma en que los elementos del contenedor se van a desplegar*/
+        gap: 50px; /*gap se traduce como brecha en español y, en este conjunto de propiedades, se refiere al espacio entre los elementos HTML de un contenedor*/
+    }
+    #quehago {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    #gustos {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    #quien {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+</style>

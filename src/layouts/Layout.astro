@@ -1,0 +1,114 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header>
+			<nav id="barnav">
+				<div id="logo">
+					<a href="/"
+						><img src="/logo.png" width="40px" height="40px" /></a
+					>
+				</div>
+				<div id="burger">
+					<div>
+						<button class="relative group">
+							<div
+								class="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all bg-slate-700 ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md"
+							>
+								<div
+									class="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden group-focus:translate-x-1.5"
+								>
+									<div
+										class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:rotate-[42deg] group-focus:w-2/3 delay-150"
+									>
+									</div>
+									<div
+										class="bg-white h-[2px] w-7 rounded transform transition-all duration-300 group-focus:translate-x-10"
+									>
+									</div>
+									<div
+										class="bg-white h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:-rotate-[42deg] group-focus:w-2/3 delay-150"
+									>
+									</div>
+								</div>
+							</div>
+						</button>
+					</div>
+				</div>
+				<div id="menu">
+					<a href="/contacto" class="links"> Contactos</a>
+					<a href="/sobremi" class="links"> Sobre mi</a>
+					<a href="/nose" class="links"> ¿Porque esto?</a>
+				</div>
+			</nav>
+		</header>
+		<slot />
+	</body>
+</html>
+
+<style>
+	#burger {
+		display: block;
+	}
+	body {
+		background-color: gray;
+	}
+	#barnav {
+		display: flex;
+		flex-wrap: wrap; /*especifica si los elementos "hijos" son obligados a permanecer en una misma línea o pueden fluir en varias líneas.*/
+		justify-content: space-between;
+		margin: 20px;
+	}
+	#menu {
+		color: black;
+		display: none;
+		justify-content: center;
+		gap: 10px;
+		flex-direction: column;
+		margin-top: 20px;
+		width: 100%;
+	}
+
+	.links:hover {
+		color: blueviolet;
+	}
+	@media (min-width: 768px) {
+		#menu {
+			display: flex;
+			flex-direction: row;
+			width: auto;
+		}
+		#burger {
+			display: none;
+		}
+	}
+</style>
+<script is:inline>
+// recupera el elemento por su id
+const hamburger = document.getElementById("burger");
+
+function burgerclick() {
+	const menu = document.getElementById("menu");
+
+	if (window.getComputedStyle(menu).display === "none") {
+		menu.style.display = "flex";
+	} else {
+		menu.style.display = "none";
+	}
+}
+hamburger.addEventListener("click", burgerclick);
+</script>
